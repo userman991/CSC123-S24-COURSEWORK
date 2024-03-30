@@ -1,6 +1,5 @@
 //Jovanny Gonzalez
 //CSC 123-01
-
 import java.io.*;
 import java.util.*;
 public class MyScanner 
@@ -9,14 +8,12 @@ public class MyScanner
     private InputStreamReader reader;
     private String delimiter="\n";
     /*Files to read and take the input stream*/
-
     /*Constructor takes an input stream and it reads it if one is provided.*/
     public MyScanner(InputStream source) 
     {
         this.inputStream = source;
         this.reader = new InputStreamReader(inputStream);
     }
-
     /*Constructor taking File as source*/
     public MyScanner(File source) throws FileNotFoundException 
     {
@@ -27,7 +24,6 @@ public class MyScanner
     {
         this(new ByteArrayInputStream(source.getBytes()));
     }
-
     /*Method to read and return all remaining characters on the current line as a String*/
     public String nextLine() throws NoSuchElementException 
     {
@@ -54,7 +50,6 @@ public class MyScanner
         }
         return line;
     }
-
     /*This method reads the next token and converts it to an Int*/
     public int nextInt() throws InputMismatchException 
     {
@@ -68,7 +63,6 @@ public class MyScanner
             throw new InputMismatchException("Input is not a valid integer");
         }
     }
-
     /*This method reads the next token and converts it to a Double*/
     public double nextDouble() throws InputMismatchException 
     {
@@ -81,7 +75,6 @@ public class MyScanner
             throw new InputMismatchException("Input is not a valid double");
         }
     }
-
     /*This method reads the next token and converts it to a Long*/
     public long nextLong() throws InputMismatchException 
     {
@@ -94,7 +87,6 @@ public class MyScanner
             throw new InputMismatchException("Input is not a valid long");
         }
     }
-
     /*This method reads the next token and converts it to a Float*/
     public float nextFloat() throws InputMismatchException 
     {
@@ -107,7 +99,6 @@ public class MyScanner
             throw new InputMismatchException("Input is not a valid float");
         }
     }
-
     /*This method reads the next token and converts it to a Short*/
     public short nextShort() throws InputMismatchException 
     {
@@ -120,7 +111,6 @@ public class MyScanner
             throw new InputMismatchException("Input is not a valid short");
         }
     }
-
     /*This method reads the next token and converts it to a Byte or tries to maintain it as one*/
     public byte nextByte() throws InputMismatchException 
     {
@@ -133,7 +123,6 @@ public class MyScanner
             throw new InputMismatchException("Input is not a valid byte");
         }
     }
-
     /*This method reads the next token and converts it to a Boolean*/
     public boolean nextBoolean() throws InputMismatchException 
     {
@@ -151,13 +140,11 @@ public class MyScanner
             throw new InputMismatchException("Input is not a valid boolean");
         }
     }
-
     /*This method is used to set the delimiter*/
     public void useDelimiter(String format) 
     {
         this.delimiter = format;
     }
-
     /*This method reads the next token and returns it as a String*/
     public String next() throws NoSuchElementException 
     {
@@ -190,11 +177,102 @@ public class MyScanner
         }
         return token;
     }
-    
     /*This method is used to close the input string and the file reader.*/
     public void close() throws IOException 
     {
         reader.close();
         inputStream.close();
+    }
+    /*hasNext() and so on*/
+    /*This method is used to see if the next token can be read*/
+    public boolean hasNext() 
+    {
+        try 
+        {
+            next();
+            return true;
+        }
+        catch (NoSuchElementException e) 
+        {
+            e.getCause();
+            return false;
+        }
+    }
+    /*This method is used to see if the next token can be parsed as an int*/
+    public boolean hasNextInt() 
+    {
+        try 
+        {
+            nextInt();
+            return true;
+        }
+        catch (NoSuchElementException e) 
+        {
+            return false;
+        }
+    }
+    /*This method is used to see if the next token can be parsed as a double*/
+    public boolean hasNextDouble() 
+    {
+        try 
+        {
+            nextDouble();
+            return true;
+        } 
+        catch (NoSuchElementException e) 
+        {
+            return false;
+        }
+    }
+    /*This method is used to see if the next token can be parsed as a long*/
+    public boolean hasNextLong() 
+    {
+        try {
+            nextLong();
+            return true;
+        }
+        catch (NoSuchElementException e) 
+        {
+            return false;
+        }
+    }
+    /*This method is used to see if the next token can be parsed as a float*/
+    public boolean hasNextFloat() 
+    {
+        try
+        {
+            nextFloat();
+            return true;
+        } 
+        catch (NoSuchElementException e)
+        {
+            return false;
+        }
+    }
+    /*This method is used to check if the next token can be parsed as a short*/
+    public boolean hasNextShort() 
+    {
+        try 
+        {
+            nextShort();
+            return true;
+        }
+        catch (NoSuchElementException e) 
+        {
+            return false;
+        }
+    }
+    /*This method is used to check if the next token can be used as a byte*/
+    public boolean hasNextByte() 
+    {
+        try 
+        {
+            nextByte();
+            return true;
+        } 
+        catch (NoSuchElementException e) 
+        {
+            return false;
+        }
     }
 }
