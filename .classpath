@@ -8,5 +8,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Assignment 2 - Intro to Java Classes"/>
 	<classpathentry kind="src" path="Assignment 3 - Object Oriented Design (DMV)"/>
+	<classpathentry kind="src" path="Assignment 4 - Java I/O"/>
+	<classpathentry kind="src" path="Assignemnt 4-IO"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
