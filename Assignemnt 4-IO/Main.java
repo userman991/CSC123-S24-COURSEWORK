@@ -1,3 +1,6 @@
+//Jovanny Gonzalez
+//CSC 123-01
+
 import java.util.*;
 import java.io.*;
 public class Main {
