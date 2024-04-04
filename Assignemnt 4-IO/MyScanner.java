@@ -6,24 +6,53 @@ public class MyScanner
 {
     private InputStream inputStream;
     private InputStreamReader reader;
-    private String delimiter="\n";
+    private String delimiter="\s";
+    private int index;
+	private String tokens[];
+
+    
     /*Files to read and take the input stream*/
     /*Constructor takes an input stream and it reads it if one is provided.*/
+	
     public MyScanner(InputStream source) 
     {
         this.inputStream = source;
         this.reader = new InputStreamReader(inputStream);
     }
+    
     /*Constructor taking File as source*/
+    
     public MyScanner(File source) throws FileNotFoundException 
     {
         this(new FileInputStream(source));
     }
+    
+    
     /*Constructor taking String as source*/
-    public MyScanner(String source) 
+    
+    public MyScanner(String string) 
     {
-        this(new ByteArrayInputStream(source.getBytes()));
+
+    	if (string != null && !string.equals("")) 
+    	{
+
+    		tokens = string.trim().split("\\s+");
+
+    	}
+
+    	else 
+    	{
+
+
+    		tokens = new String[0];
+
+    	}
+
+    	index = 0;
+
     }
+	
+
     /*Method to read and return all remaining characters on the current line as a String*/
     public String nextLine() throws NoSuchElementException 
     {
@@ -55,13 +84,13 @@ public class MyScanner
     {
         try 
         {
-        	int temp=Integer.parseInt(next());
-            return temp;
+            return Integer.parseInt(next());
         }
         catch (NumberFormatException e) 
         {
-            throw new InputMismatchException("Input is not a valid integer");
+            throw new InputMismatchException("Input is not a valid Int");
         }
+        
     }
     /*This method reads the next token and converts it to a Double*/
     public double nextDouble() throws InputMismatchException 
@@ -117,10 +146,10 @@ public class MyScanner
         try 
         {
             return Byte.parseByte(next());
-        }
+        } 
         catch (NumberFormatException e) 
         {
-            throw new InputMismatchException("Input is not a valid byte");
+            throw new InputMismatchException("Input is not a valid Byte");
         }
     }
     /*This method reads the next token and converts it to a Boolean*/
@@ -153,8 +182,9 @@ public class MyScanner
         try 
         {
             while ((character = reader.read()) != -1) 
-            {
-                if (delimiter.contains(Character.toString((char) character))) 
+            // "\r" is basically enter from my understanding. Int wouldn't work without it so I included it here.
+            {																			
+                if (delimiter.contains(Character.toString((char) character))|| character=='\n' || character=='\r') 
                 {
                     if (!token.isEmpty()) 
                     {
@@ -177,14 +207,19 @@ public class MyScanner
         }
         return token;
     }
+    
     /*This method is used to close the input string and the file reader.*/
     public void close() throws IOException 
     {
         reader.close();
         inputStream.close();
     }
+    
+    
+    
     /*hasNext() and so on*/
     /*This method is used to see if the next token can be read*/
+    
     public boolean hasNext() 
     {
         try 
@@ -201,13 +236,18 @@ public class MyScanner
     /*This method is used to see if the next token can be parsed as an int*/
     public boolean hasNextInt() 
     {
+        if(!hasNext()) 
+        {
+        	return false;
+        }
         try 
         {
-            nextInt();
-            return true;
+        int n=Integer.parseInt(tokens[index]);
+        	return true;
         }
-        catch (NoSuchElementException e) 
+        catch (Exception e)
         {
+        	e.getCause();
             return false;
         }
     }
