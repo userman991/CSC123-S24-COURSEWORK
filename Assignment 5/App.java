@@ -33,6 +33,7 @@ public class App {
 			choice=(int)x;
 		}
 		
+		
 		switch(choice)
 		{
 		case 1:
@@ -85,6 +86,7 @@ public class App {
 			break;
 		case 7:
 			System.out.println("You selected: "+choice+", Lookup Membership");
+			lib.listMembers();
 			break;
 		case 8:
 			System.out.println("You selected: "+choice+", Exit");
