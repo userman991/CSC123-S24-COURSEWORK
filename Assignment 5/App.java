@@ -158,6 +158,9 @@ public class App {
 			break;
 		case 5:
 			System.out.println("You selected: "+choice+", Report Inventory");
+			//lib.listBooks();
+			//lib.listDvd();
+			//lib.listMagazines();
 			break;
 		case 6:
 			System.out.println("You selected: "+choice+", Report Loans");
