@@ -10,8 +10,6 @@ public class Library
 	private ArrayList<Book> books;
 	private ArrayList<DVD> dvds;
 	private ArrayList<Magazine> magazines;
-
-
     
 	public String toString()
     {
@@ -22,6 +20,16 @@ public class Library
 	{
 		books.add(b);
 		b.setLibrary(this);
+	}
+	public void addMagazine(Magazine m) 
+	{
+		magazines.add(m);
+		m.setLibrary(this);
+	}
+	public void addDvd(DVD d)
+	{
+		dvds.add(d);
+		d.setLibrary(this);
 	}
 	public void addMembership(Membership guest) 
 	{
@@ -44,6 +52,20 @@ public class Library
 			System.out.println(b);
 		}
 	}
+	public void listMagazines() 
+	{
+		for (Magazine m : magazines) 
+		{
+			System.out.println(m);
+		}
+	}
+	public void listDvd()
+	{
+		for (DVD d : dvds) 
+		{
+			System.out.println(d);
+		}
+	}
 	
 	public void setOwner(Book b) 
 	{		
@@ -54,9 +76,5 @@ public class Library
 	{
 		return owner;
 	}
-	
-	public void setLibraryName(String name) 
-	{
-		libraryName=name;
-	}
+
 }

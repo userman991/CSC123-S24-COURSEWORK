@@ -20,21 +20,40 @@ public class DVD
 	  releaseDate=this.releaseDate;
 
   }
+	public String getTitle() 
+	{
+		return title;
+	}
 
-  public String getTitle()
-  {
-	return title;  
-  }
-
-  
-  /*
-  public boolean equals(Book x) 
-  {
-	  return x.getAuthor()==getAuthor()&& x.getISBN()==getISBN()
-			  && x.getNumberOfPages()==getNumberOfPages() && x.getTitle()==getTitle();
-  }
-*/
+	public void setTitle(String title) 
+	{
 	
+		this.title = title;
+	}
+
+
+
+	public int getReleaseDate() 
+	{
+		return releaseDate;
+	}
+
+	public void setReleaseDate(int releaseDate) 
+	{
+		this.releaseDate = releaseDate;
+	}
+
+	public int getIssueNumber() 
+	{
+		return issueNumber;
+	}
+
+	public void setIssueNumber(int issueNumber) 
+	{
+		this.issueNumber = issueNumber;
+	}
+
+
 	public void setLibrary(Library l) 
 	{		
 		library = l;
@@ -44,11 +63,5 @@ public class DVD
 	{
 		return library;
 	}
-	/*
-	public String toString() 
-	{
-		return "Title: " + title + ", Author: " + author + ", Pages: " + pages + " , ISBN:"+isbn;
-	}
 
-	*/
 }

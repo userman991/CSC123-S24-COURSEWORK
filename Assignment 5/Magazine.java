@@ -15,4 +15,10 @@ public class Magazine
 		this.issueNumber = issueNumber;
 		this.library = library;
 	}
+	
+  	public void setLibrary(Library l) 
+  	{		
+  		library = l;
+  	}
+  	
 }
