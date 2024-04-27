@@ -1,3 +1,5 @@
+//Jovanny Gonzalez
+//jgonzalez1071@toromail.csudh.edu
 
 public class Magazine 
 {

@@ -1,3 +1,5 @@
+//Jovanny Gonzalez
+//jgonzalez1071@toromail.csudh.edu
 import java.util.*;
 public class App {
 
@@ -19,6 +21,8 @@ public class App {
 		x=keyboard.nextFloat();
 		int choice;
 		choice=(int)x;
+		
+		
 		while (x<0||x>8)
 		{
 			System.out.println("You selected: "+choice+", Invalid.");
@@ -31,7 +35,35 @@ public class App {
 		switch(choice)
 		{
 		case 1:
+			String fName;
+			String lName;
+			int age;
+			String mycity;
+			int zip;
 			System.out.println("You selected: "+choice+", New Membership");
+			
+			System.out.println("First Name: ");
+			fName=keyboard.next();
+			
+			System.out.println("Last Name: ");
+			lName=keyboard.next();
+			System.out.println("NOTE:Your input will be forced into an integer.");
+			System.out.println("Age: ");
+			float tempAge;
+			tempAge=keyboard.nextFloat();
+			age=(int)tempAge;
+			System.out.println("City: ");
+			mycity=keyboard.next();
+			System.out.println("Zip: ");
+			float tempZip;
+			tempZip=keyboard.nextFloat();
+			zip=(int)tempZip;			
+			Membership test=new Membership(fName,lName,age, mycity,zip);
+			
+			test.setGuardian();
+			String result=test.toString();
+			System.out.print(result);
+			
 			break;
 		case 2:
 			System.out.println("You selected: "+choice+", Add Material");
@@ -57,11 +89,7 @@ public class App {
 		default:
 			System.out.println("You selected: "+choice+", Invalid. Please try again.");
 			break;
-		}
-		
-		
-		
-		
+		}		
 		
 	}
 
