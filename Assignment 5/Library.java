@@ -4,30 +4,37 @@
 import java.util.ArrayList;
 public class Library 
 {
-	private String libraryName;
-	private String address;
+	private String libraryName="Main Library";
 	private Book owner;
+	private ArrayList<Membership> members;
 	private ArrayList<Book> books;
 	private ArrayList<DVD> dvds;
 	private ArrayList<Magazine> magazines;
 
-	
-	public Library(String lName, String lAddress) 
-	{
-		libraryName = lName;
-		address = lAddress;
-		books=new ArrayList<Book>();
-	}
+
     
 	public String toString()
     {
-		return ("Library Name:"+libraryName+"  , Address:"+address);  	
+		return ("Library Name: "+ libraryName);  	
     }
 	
 	public void addBook(Book b) 
 	{
 		books.add(b);
 		b.setLibrary(this);
+	}
+	public void addMembership(Membership guest) 
+	{
+		members.add(guest);
+		guest.setLibrary(this);
+	}
+	
+	public void listMembers() 
+	{
+		for (Membership guest : members) 
+		{
+			System.out.println(guest);
+		}
 	}
 	
 	public void listBooks() 
@@ -52,11 +59,4 @@ public class Library
 	{
 		libraryName=name;
 	}
-	
-	
-	public void setAddress(String a) 
-	{
-		address=a;
-	}
-	
 }

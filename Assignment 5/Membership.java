@@ -2,11 +2,12 @@
 //jgonzalez1071@toromail.csudh.edu
 import java.util.Scanner;
 
-public class Membership 
+public class Membership extends Library
 {
 	Scanner keyboard=new Scanner(System.in);
 	//The library requires First Name, Last Name, Date of Birth (MM/DD/YY), City, and Zip code
 	//if age is under 18, child. They need a guardian.
+	
 	private String firstName;
 	private String lastName;
 	private int age;
@@ -14,7 +15,7 @@ public class Membership
 	private int zipCode;
 	private boolean child;
 	private String guardian;
-	
+	private Library library;
 
 	
 	public Membership(String fName, String lName, int tempAge, String mycity, int myZipCode)
@@ -48,5 +49,10 @@ public class Membership
 		return "Membership [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", city=" + city
 				+ ", zipCode=" + zipCode + ", child=" + child + ", guardian=" + guardian + "]";
 	}
+	
+  	public void setLibrary(Library l) 
+  	{		
+  		library = l;
+  	}
 	
 }

@@ -5,6 +5,7 @@ public class App {
 
 	public static void main(String[] args) 
 	{
+		Library lib=new Library();
 		Scanner keyboard=new Scanner(System.in);
 		System.out.println("NOTE:Your input will be forced into an integer.");
 		System.out.println("1 – New Membership");
@@ -59,10 +60,12 @@ public class App {
 			tempZip=keyboard.nextFloat();
 			zip=(int)tempZip;			
 			Membership test=new Membership(fName,lName,age, mycity,zip);
-			
 			test.setGuardian();
 			String result=test.toString();
 			System.out.print(result);
+			//test.setLibrary(lib);
+			//lib.addMembership(test);
+			//lib.listMembers();
 			
 			break;
 		case 2:

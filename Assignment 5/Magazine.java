@@ -15,9 +15,4 @@ public class Magazine
 		this.issueNumber = issueNumber;
 		this.library = library;
 	}
-	
-	
-	
-	
-	
 }
